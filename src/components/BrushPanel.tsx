@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Slider, Grid, Tabs, Tab, IconButton, Popover } from '@mui/material';
+import { Box, Typography, Slider, Grid, Tabs, Tab, Popover } from '@mui/material';
 import type { ToolState } from '../types/tools';
 import { BRUSHES, type BrushPreset } from '../utils/brushes';
 
@@ -88,7 +88,7 @@ const BrushPanel: React.FC<BrushPanelProps> = ({ toolState, setToolState, anchor
                 <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.5)', mb: 1, display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>{cat}</Typography>
                 <Grid container spacing={1}>
                   {BRUSHES.filter(b => b.category === cat).map(brush => (
-                    <Grid item xs={6} key={brush.id}>
+                    <Grid size={{ xs: 6 }} key={brush.id}>
                       <Box
                         onClick={() => handleBrushSelect(brush)}
                         sx={{

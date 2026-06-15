@@ -46,8 +46,9 @@ export const extractPreviewFromRaw = async (file: File): Promise<File> => {
       try {
         const tags = await ExifReader.load(buffer, { expanded: true });
         
-        if (tags.Images && tags.Images.length > 0) {
-          for (const img of tags.Images) {
+        const images = (tags as any).Images;
+        if (images && images.length > 0) {
+          for (const img of images) {
             if (img.image && img.image.byteLength > maxLength) {
               bestImageBuf = img.image as ArrayBuffer;
               maxLength = bestImageBuf.byteLength;
@@ -104,7 +105,13 @@ export const extractPreviewFromRaw = async (file: File): Promise<File> => {
       try {
         const thumb = await exifr.thumbnail(buffer);
         if (thumb && thumb.byteLength > maxLength) {
-          bestImageBuf = thumb.buffer || thumb;
+          const buf = thumb.buffer || thumb;
+          if (buf instanceof ArrayBuffer) {
+            bestImageBuf = buf;
+          } else if (buf instanceof SharedArrayBuffer) {
+            const u8 = new Uint8Array(buf);
+            bestImageBuf = new Uint8Array(u8).buffer;
+          }
           maxLength = thumb.byteLength;
         }
       } catch (e) {

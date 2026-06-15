@@ -1,5 +1,5 @@
 export type BrushType = 'solid' | 'soft' | 'airbrush' | 'pencil' | 'chalk' | 'marker' | 'texture' | 'watercolor';
-export type BlendMode = 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion';
+export type BlendMode = 'normal' | 'multiply' | 'screen' | 'overlay' | 'darken' | 'lighten' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light' | 'difference' | 'exclusion' | 'color';
 
 export interface BrushPreset {
   id: string;

@@ -176,10 +176,7 @@ const SidebarLeft: React.FC<SidebarLeftProps> = ({ files, onFileChange, onSelect
               <ListItemText 
                 primary={file.name.length > 22 ? file.name.substring(0, 12) + '...' + file.name.slice(-7) : file.name}
                 title={file.name}
-                primaryTypographyProps={{
-                  noWrap: true,
-                  sx: { fontSize: '0.72rem', fontWeight: isSelected ? 500 : 400, color: 'var(--ux-text-primary)' },
-                }}
+                sx={{ fontSize: '0.72rem', fontWeight: isSelected ? 500 : 400, color: 'var(--ux-text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
               />
             </ListItemButton>
           );

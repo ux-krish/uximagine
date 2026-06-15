@@ -382,11 +382,12 @@ function App() {
         <>
           <Drawer
             anchor="left" open={mobilePanel === 'library'} onClose={() => setMobilePanel(null)}
-            PaperProps={{
-              sx: {
+            sx={{
+              width: '85vw', maxWidth: 360,
+              '& .MuiDrawer-paper': {
                 width: '85vw', maxWidth: 360, background: 'rgba(10, 10, 18, 0.95)',
                 backdropFilter: 'blur(24px)', border: 'none',
-              },
+              }
             }}
           >
             <SidebarLeft

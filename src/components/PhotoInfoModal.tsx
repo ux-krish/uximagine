@@ -123,8 +123,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
       onClose={onClose}
       maxWidth="sm"
       fullWidth
-      PaperProps={{
-        sx: {
+      sx={{
+        '& .MuiDialog-paper': {
           background: 'rgba(15, 15, 20, 0.95)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255,255,255,0.1)',
@@ -134,7 +134,7 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
       }}
     >
       <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pb: 1 }}>
-        <Typography variant="subtitle1" fontWeight={600}>Photo Information</Typography>
+        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Photo Information</Typography>
         <IconButton onClick={onClose} size="small" sx={{ color: 'var(--ux-text-muted)' }}>
           <CloseIcon fontSize="small" />
         </IconButton>
@@ -142,7 +142,7 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
       <Divider sx={{ borderColor: 'rgba(255,255,255,0.05)' }} />
       <DialogContent sx={{ minHeight: 250 }}>
         {loading ? (
-          <Box display="flex" justifyContent="center" alignItems="center" height={200}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 200 }}>
             <CircularProgress size={30} sx={{ color: '#7c3aed' }} />
           </Box>
         ) : (
@@ -152,8 +152,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
               File Details
             </Typography>
             <Grid container spacing={2} sx={{ mb: 3, mt: 0.5 }}>
-              <Grid item xs={12} sm={6}>
-                <Box display="flex" alignItems="center" gap={1.5}>
+              <Grid size={{ xs: 12, sm: 6 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                   <InsertDriveFileOutlinedIcon sx={{ color: 'var(--ux-text-muted)', fontSize: 20 }} />
                   <Box>
                     <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Name</Typography>
@@ -161,13 +161,13 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
                   </Box>
                 </Box>
               </Grid>
-              <Grid item xs={6} sm={3}>
+              <Grid size={{ xs: 6, sm: 3 }}>
                 <Box>
                   <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Size</Typography>
                   <Typography sx={{ fontSize: '0.85rem' }}>{formatBytes(file.size)}</Typography>
                 </Box>
               </Grid>
-              <Grid item xs={6} sm={3}>
+              <Grid size={{ xs: 6, sm: 3 }}>
                 <Box>
                   <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Format</Typography>
                   <Typography sx={{ fontSize: '0.85rem' }}>{file.type || file.name.split('.').pop()?.toUpperCase()}</Typography>
@@ -183,8 +183,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
                 </Typography>
                 <Grid container spacing={3} sx={{ mt: 0.5 }}>
                   {exif?.make && exif?.model && (
-                    <Grid item xs={12} sm={6}>
-                      <Box display="flex" alignItems="center" gap={1.5}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                         <CameraAltOutlinedIcon sx={{ color: 'var(--ux-text-muted)', fontSize: 20 }} />
                         <Box>
                           <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Camera</Typography>
@@ -194,8 +194,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
                     </Grid>
                   )}
                   {exif?.lens && (
-                    <Grid item xs={12} sm={6}>
-                      <Box display="flex" alignItems="center" gap={1.5}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                         <LensOutlinedIcon sx={{ color: 'var(--ux-text-muted)', fontSize: 20 }} />
                         <Box>
                           <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Lens</Typography>
@@ -204,8 +204,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
                       </Box>
                     </Grid>
                   )}
-                  <Grid item xs={6} sm={3}>
-                    <Box display="flex" alignItems="center" gap={1.5}>
+                  <Grid size={{ xs: 6, sm: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                       <AspectRatioOutlinedIcon sx={{ color: 'var(--ux-text-muted)', fontSize: 20 }} />
                       <Box>
                         <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Dimensions</Typography>
@@ -216,8 +216,8 @@ const PhotoInfoModal: React.FC<PhotoInfoModalProps> = ({ open, onClose, file }) 
                     </Box>
                   </Grid>
                   {exif?.date && (
-                    <Grid item xs={12} sm={6}>
-                      <Box display="flex" alignItems="center" gap={1.5}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                         <DateRangeOutlinedIcon sx={{ color: 'var(--ux-text-muted)', fontSize: 20 }} />
                         <Box>
                           <Typography sx={{ fontSize: '0.75rem', color: 'var(--ux-text-muted)' }}>Date Taken</Typography>
