@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">UXImagine</string>
+    <string name="title_activity_main">UXImagine</string>
+    <string name="package_name">com.uximagine.app</string>
+    <string name="custom_url_scheme">com.uximagine.app</string>
+</resources>
